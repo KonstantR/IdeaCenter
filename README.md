@@ -31,15 +31,29 @@ All 15 assertions passed in the recorded test run.
 - `IdeaCenter-Report-SANITIZED.html` – sanitized Newman HTML report.
 
 ## How to Run
-1. Install Node.js.
-2. Install Newman:
-   ```bash
-   npm install -g newman
-   ```
-3. Run the collection:
-   ```bash
-   newman run IdeaCenter.postman_collection.json
-   ```
 
-## Security Note
-Credentials and access tokens have been removed from the published report. Use your own authorized test environment and credentials when running the collection.
+### Prerequisites
+- Install [Node.js](https://nodejs.org/).
+- Install Newman and the HTML Extra reporter:
+
+```bash
+npm install -g newman newman-reporter-htmlextra
+```
+
+### Run the API tests
+
+Open a terminal in the project directory and run:
+
+```bash
+newman run IdeaCenter.postman_collection.json
+```
+
+### Generate an HTML report
+
+Run the following command to execute the collection and generate an HTML report:
+
+```bash
+newman run IdeaCenter.postman_collection.json -r htmlextra --reporter-htmlextra-export IdeaCenter-Report.html
+```
+
+The report is generated locally in the project directory. Review it and remove any sensitive information before sharing it publicly.
